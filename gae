@@ -332,3 +332,28 @@ local Tabs = {
 }
 
 local Options = Fluent.Options
+
+Tabs.home:AddParagraph({
+    Title = "thank you for using wayne.lua",
+    Content = "thank you for using wayne.lua"
+})
+
+Tabs.home:AddParagraph({
+    Title = "owner: samet.exe",
+    Content = "owner: samet.exe"
+})
+
+Tabs.home:AddParagraph({
+    Title = "ceo: samet.exe",
+    Content = "ceo: samet.exe"
+})
+
+Tabs.home:AddParagraph({
+    Title = "helper: coquette",
+    Content = "helper: coquette"
+})
+Tabs.home:AddParagraph({
+    Title = "ui library",
+    Content = "fluent (creds to dawid-scripts)"
+})
+
