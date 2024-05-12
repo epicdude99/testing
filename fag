@@ -1,0 +1,1282 @@
+-- a dusty trip
+local KeySystemUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/MaGiXxScripter0/keysystemv2api/master/ui/xrer_mstudio45.lua"))()
+KeySystemUI.New({
+    ApplicationName = "wayne.lua", -- Your Key System Application Name
+    Name = "wayne.lua", -- Your Script name
+    Info = "Get Key For wayne.lua", -- Info text in the GUI, keep empty for default text.
+    DiscordInvite = "", -- Optional.
+    AuthType = "clientid" -- Can select verifycation with ClientId or IP ("clientid" or "ip")
+})
+repeat task.wait() until KeySystemUI.Finished() or KeySystemUI.Closed
+if KeySystemUI.Finished() and KeySystemUI.Closed == false then
+    print("Key verified, can load script")
+	local esp = {jerrycan = nil, jcolor = Color3.fromRGB(255,255,255), carengine = nil, ecolor = Color3.fromRGB(255,255,255), yumyum = nil, fcolor = Color3.fromRGB(255,255,255), cooler = nil, ccolor = Color3.fromRGB(255,255,255), guns = nil, gcolor = Color3.fromRGB(255,255,255), monsters = nil, mcolor = Color3.fromRGB(255,255,255), caps = nil, cccolor = Color3.fromRGB(255,255,255)}
+	local runservice = game:GetService("RunService")
+	local tpx = 0
+	local tpy = 0
+	local tpz = 0
+	local tpoffset = Vector3.new(tpx, tpy, tpz)
+	local customfirerateValue = 16
+	local customfirerate = nil
+
+	local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+	local Window = OrionLib:MakeWindow({Name = "brainrot.lol | a dusty trip", HidePremium = false, SaveConfig = false, ConfigFolder = "OrionTest"})
+
+	local function Noclip()
+    for i, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+        if v:IsA("BasePart") and v.CanCollide == true then
+            v.CanCollide = false
+        end
+    end
+end
+
+local function Clip() 
+	for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do 
+		if v:IsA("BasePart") and v.CanCollide == false then 
+			v.CanCollide = true 
+		end
+	end
+end
+
+	function jerrycann()
+		for i,v in pairs(game:GetService("Workspace"):GetChildren()) do 
+			if v.Name == "GasCan" or v.Name == "gascan" or v.Name == "oilcan" or v.Name == "OilCan" or v.Name == "WaterCan" or v.Name == "watercan" or v.Name == "DieselCan" or v.Name == "dieselcan" then 
+				local distance = (v.main.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+				local gas = v.main.tank.Value
+		
+				local partgui = Instance.new("BillboardGui")
+				partgui.Parent = v
+				partgui.AlwaysOnTop = true 
+				partgui.Name = "itemespz"
+				partgui.Size = UDim2.new(1,0,1,0)
+		
+				local frame = Instance.new("Frame")
+				frame.Parent = partgui
+				frame.BackgroundColor3 = esp.jcolor
+				frame.BackgroundTransparency = 0.25
+				frame.Size = UDim2.new(1,0,1,0)
+				frame.BorderSizePixel = 0
+				local corner = Instance.new("UICorner")
+				corner.Parent = frame 
+				local namegui = Instance.new("BillboardGui")
+				namegui.Parent = v
+				namegui.AlwaysOnTop = true 
+				namegui.Name = "Name"
+				namegui.Size = UDim2.new(1,0,1,0)
+				namegui.SizeOffset = Vector2.new(0,1)
+				local text = Instance.new("TextLabel")
+				text.Parent = namegui
+				text.Text = v.Name
+				text.TextColor3 = esp.jcolor
+				text.TextTransparency = 0.25
+				text.BackgroundTransparency = 1
+				text.TextScaled = true 
+				text.Size = UDim2.new(1,0,1,0)
+				text.Font = Enum.Font.Code
+				text.Name = "Gayy"
+				local distgui = Instance.new("BillboardGui")
+				distgui.Parent = v 
+				distgui.AlwaysOnTop = true 
+				distgui.Name = "name"
+				distgui.Size = UDim2.new(1,0,1,0)
+				distgui.SizeOffset = Vector2.new(0,-1)
+				local distext = Instance.new("TextLabel")
+				distext.Parent = distgui 
+				distext.Text = ""..math.floor(distance).."m"
+				distext.TextColor3 = esp.jcolor
+				distext.TextTransparency = 0.25
+				distext.BackgroundTransparency = 1 
+				distext.TextScaled = true 
+				distext.Size = UDim2.new(1,0,1,0)
+				distext.Font = Enum.Font.Code
+				distext.Name = "gg"
+				local gasgui = Instance.new("BillboardGui")
+				gasgui.Parent = v 
+				gasgui.AlwaysOnTop = true 
+				gasgui.Name = "nm"
+				gasgui.Size = UDim2.new(1,0,1,0)
+				gasgui.SizeOffset = Vector2.new(1,0)
+				local gastext = Instance.new("TextLabel")
+				gastext.Parent = gasgui
+				gastext.Text = "tank: "..gas
+				gastext.TextColor3 = esp.jcolor
+				gastext.TextTransparency = 0.25
+				gastext.BackgroundTransparency = 1 
+				gastext.TextScaled = true 
+				gastext.Size = UDim2.new(1,0,1,0)
+				gastext.Font = Enum.Font.Code
+				gastext.Name = "gg"
+			end
+			end
+		end
+
+		function engineee()
+			for i,v in pairs(game:GetService("Workspace"):GetChildren()) do 
+				if v.Name == "Engine" or v.Name == "Object_52" then
+					local distance = (v.tank.main.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+			
+					local partgui = Instance.new("BillboardGui")
+					partgui.Parent = v
+					partgui.AlwaysOnTop = true 
+					partgui.Name = "itemespz"
+					partgui.Size = UDim2.new(1,0,1,0)
+			
+					local frame = Instance.new("Frame")
+					frame.Parent = partgui
+					frame.BackgroundColor3 = esp.ecolor
+					frame.BackgroundTransparency = 0.25
+					frame.Size = UDim2.new(1,0,1,0)
+					frame.BorderSizePixel = 0
+					local corner = Instance.new("UICorner")
+					corner.Parent = frame 
+					local namegui = Instance.new("BillboardGui")
+					namegui.Parent = v
+					namegui.AlwaysOnTop = true 
+					namegui.Name = "Name"
+					namegui.Size = UDim2.new(1,0,1,0)
+					namegui.SizeOffset = Vector2.new(0,1)
+					local text = Instance.new("TextLabel")
+					text.Parent = namegui
+					text.Text = v.Name
+					text.TextColor3 = esp.ecolor
+					text.TextTransparency = 0.25
+					text.BackgroundTransparency = 1
+					text.TextScaled = true 
+					text.Size = UDim2.new(1,0,1,0)
+					text.Font = Enum.Font.Code
+					text.Name = "Gayy"
+					local distgui = Instance.new("BillboardGui")
+					distgui.Parent = v 
+					distgui.AlwaysOnTop = true 
+					distgui.Name = "name"
+					distgui.Size = UDim2.new(1,0,1,0)
+					distgui.SizeOffset = Vector2.new(0,-1)
+					local distext = Instance.new("TextLabel")
+					distext.Parent = distgui 
+					distext.Text = ""..math.floor(distance).."m"
+					distext.TextColor3 = esp.ecolor
+					distext.TextTransparency = 0.25
+					distext.BackgroundTransparency = 1 
+					distext.TextScaled = true 
+					distext.Size = UDim2.new(1,0,1,0)
+					distext.Font = Enum.Font.Code
+					distext.Name = "gg"
+				end
+				end
+			end
+
+			function radiatorrr()
+				for i,v in pairs(game:GetService("Workspace"):GetChildren()) do 
+					if v.Name == "radiator" or v.Name == "Radiator" then
+						local partgui = Instance.new("BillboardGui")
+						partgui.Parent = v
+						partgui.AlwaysOnTop = true 
+						partgui.Name = "itemespz"
+						partgui.Size = UDim2.new(1,0,1,0)
+				
+						local frame = Instance.new("Frame")
+						frame.Parent = partgui
+						frame.BackgroundColor3 = esp.ccolor
+						frame.BackgroundTransparency = 0.25
+						frame.Size = UDim2.new(1,0,1,0)
+						frame.BorderSizePixel = 0
+						local corner = Instance.new("UICorner")
+						corner.Parent = frame 
+						local namegui = Instance.new("BillboardGui")
+						namegui.Parent = v
+						namegui.AlwaysOnTop = true 
+						namegui.Name = "Name"
+						namegui.Size = UDim2.new(1,0,1,0)
+						namegui.SizeOffset = Vector2.new(0,1)
+						local text = Instance.new("TextLabel")
+						text.Parent = namegui
+						text.Text = v.Name
+						text.TextColor3 = esp.ccolor
+						text.TextTransparency = 0.25
+						text.BackgroundTransparency = 1
+						text.TextScaled = true 
+						text.Size = UDim2.new(1,0,1,0)
+						text.Font = Enum.Font.Code
+						text.Name = "Gayy"
+					end
+				end
+			end
+
+			function queso()
+				for i,v in pairs(game:GetService("Workspace"):GetChildren()) do 
+					if v.Name == "Food" or v.Name == "Onion" or v.Name == "Peper" or v.Name == "Apple" or v.Name == "Pizza" or v.Name == "Bread" or v.Name == "Burger" or v.Name == "Bar" or v.Name == "Donut" or v.Name == "banana" or v.Name == "Garlic" then
+					local partgui = Instance.new("BillboardGui")
+					partgui.Parent = v
+					partgui.AlwaysOnTop = true 
+					partgui.Name = "itemespz"
+					partgui.Size = UDim2.new(1,0,1,0)
+			
+					local frame = Instance.new("Frame")
+					frame.Parent = partgui
+					frame.BackgroundColor3 = esp.fcolor
+					frame.BackgroundTransparency = 0.25
+					frame.Size = UDim2.new(1,0,1,0)
+					frame.BorderSizePixel = 0
+					local corner = Instance.new("UICorner")
+					corner.Parent = frame 
+					local namegui = Instance.new("BillboardGui")
+					namegui.Parent = v
+					namegui.AlwaysOnTop = true 
+					namegui.Name = "Name"
+					namegui.Size = UDim2.new(1,0,1,0)
+					namegui.SizeOffset = Vector2.new(0,1)
+					local text = Instance.new("TextLabel")
+					text.Parent = namegui
+					text.Text = v.Name
+					text.TextColor3 = esp.fcolor
+					text.TextTransparency = 0.25
+					text.BackgroundTransparency = 1
+					text.TextScaled = true 
+					text.Size = UDim2.new(1,0,1,0)
+					text.Font = Enum.Font.Code
+					text.Name = "Gayy"
+					end
+				end
+			end
+
+			function bangbang()
+				for i,v in pairs(game:GetService("Workspace"):GetChildren()) do 
+					if v.Name == "Pistol" or v.Name == "AK47" or v.Name == "dynamite" or v.Name == "axe" or v.Name == "RPG" or v.Name == "Mac10" or v.Name == "ARMOR_CRATE" or v.Name == "Katana" or v.Name == "Pike" or v.Name == "Muhoboika" or v.Name == "PumpShotgun" or v.Name == "C4" or v.Name == "MiniGun" or v.Name == "RopeGun" then
+			
+					local partgui = Instance.new("BillboardGui")
+					partgui.Parent = v
+					partgui.AlwaysOnTop = true 
+					partgui.Name = "itemespz"
+					partgui.Size = UDim2.new(1,0,1,0)
+			
+					local frame = Instance.new("Frame")
+					frame.Parent = partgui
+					frame.BackgroundColor3 = esp.gcolor
+					frame.BackgroundTransparency = 0.25
+					frame.Size = UDim2.new(1,0,1,0)
+					frame.BorderSizePixel = 0
+					local corner = Instance.new("UICorner")
+					corner.Parent = frame 
+					local namegui = Instance.new("BillboardGui")
+					namegui.Parent = v
+					namegui.AlwaysOnTop = true 
+					namegui.Name = "Name"
+					namegui.Size = UDim2.new(1,0,1,0)
+					namegui.SizeOffset = Vector2.new(0,1)
+					local text = Instance.new("TextLabel")
+					text.Parent = namegui
+					text.Text = v.Name
+					text.TextColor3 = esp.gcolor
+					text.TextTransparency = 0.25
+					text.BackgroundTransparency = 1
+					text.TextScaled = true 
+					text.Size = UDim2.new(1,0,1,0)
+					text.Font = Enum.Font.Code
+					text.Name = "Gayy"
+					end
+				end
+			end
+
+			function monstahhh()
+				for i,v in pairs(game:GetService("Workspace"):GetChildren()) do 
+					if v.Name == "mutant" or v.Name == "vampire" or v.Name == "Vampire" or v.Name == "Mutant" then
+			
+					local partgui = Instance.new("BillboardGui")
+					partgui.Parent = v
+					partgui.AlwaysOnTop = true 
+					partgui.Name = "itemespz"
+					partgui.Size = UDim2.new(1,0,1,0)
+			
+					local frame = Instance.new("Frame")
+					frame.Parent = partgui
+					frame.BackgroundColor3 = esp.mcolor
+					frame.BackgroundTransparency = 0.25
+					frame.Size = UDim2.new(1,0,1,0)
+					frame.BorderSizePixel = 0
+					local corner = Instance.new("UICorner")
+					corner.Parent = frame 
+					local namegui = Instance.new("BillboardGui")
+					namegui.Parent = v
+					namegui.AlwaysOnTop = true 
+					namegui.Name = "Name"
+					namegui.Size = UDim2.new(1,0,1,0)
+					namegui.SizeOffset = Vector2.new(0,1)
+					local text = Instance.new("TextLabel")
+					text.Parent = namegui
+					text.Text = v.Name
+					text.TextColor3 = esp.mcolor
+					text.TextTransparency = 0.25
+					text.BackgroundTransparency = 1
+					text.TextScaled = true 
+					text.Size = UDim2.new(1,0,1,0)
+					text.Font = Enum.Font.Code
+					text.Name = "Gayy"
+					end
+				end
+			end
+
+			function bottlecapp()
+				for i,v in pairs(game:GetService("Workspace"):GetChildren()) do 
+					if v.Name == "BottleCap" or v.Name == "bottlecap" then 
+						local partgui = Instance.new("BillboardGui")
+						partgui.Parent = v
+						partgui.AlwaysOnTop = true 
+						partgui.Name = "itemespz"
+						partgui.Size = UDim2.new(1,0,1,0)
+				
+						local frame = Instance.new("Frame")
+						frame.Parent = partgui
+						frame.BackgroundColor3 = esp.fcolor
+						frame.BackgroundTransparency = 0.25
+						frame.Size = UDim2.new(1,0,1,0)
+						frame.BorderSizePixel = 0
+						local corner = Instance.new("UICorner")
+						corner.Parent = frame 
+						local namegui = Instance.new("BillboardGui")
+						namegui.Parent = v
+						namegui.AlwaysOnTop = true 
+						namegui.Name = "Name"
+						namegui.Size = UDim2.new(1,0,1,0)
+						namegui.SizeOffset = Vector2.new(0,1)
+						local text = Instance.new("TextLabel")
+						text.Parent = namegui
+						text.Text = v.Name
+						text.TextColor3 = esp.fcolor
+						text.TextTransparency = 0.25
+						text.BackgroundTransparency = 1
+						text.TextScaled = true 
+						text.Size = UDim2.new(1,0,1,0)
+						text.Font = Enum.Font.Code
+						text.Name = "Gayy"
+					end
+				end
+			end
+
+
+
+	local home = Window:MakeTab({
+		Name = "home",
+		Icon = "rbxassetid://4384400812",
+		PremiumOnly = false
+	})
+
+	local credits = home:AddSection({
+		Name = "credits"
+	})
+
+	home:AddLabel("made by samet.exe on discord")
+	home:AddLabel("developers: microwave.xyz0001")
+	home:AddLabel("special thanks to shin")
+
+	home:AddButton({
+		Name = "copy discord link",
+		Callback = function()
+			setclipboard("https://discord.gg/jwh629WMFt")
+			OrionLib:MakeNotification({
+				Name = "brainrot.lol",
+				Content = "copied link into clipboard",
+				Image = "rbxassetid://4483345998",
+				Time = 5
+			})
+			
+		  end    
+	})
+
+	home:AddButton({
+		Name = "teleport to ghost town",
+		Callback = function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(46814.44140625, -273.2905578613281, -133697.640625)
+		  end    
+	})
+
+	home:AddButton({
+		Name = "teleport to radio",
+		Callback = function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(31875.9453125, 235.44677734375, -108051.859375)
+		  end    
+	})
+
+	home:AddButton({
+		Name = "destroy ui",
+		Callback = function()
+			OrionLib:Destroy()
+		  end    
+	})
+
+	local Tab = Window:MakeTab({
+		Name = "visuals",
+		Icon = "rbxassetid://4483345998",
+		PremiumOnly = false
+	})
+
+	local Section = Tab:AddSection({
+		Name = "car parts"
+	})
+
+	Tab:AddToggle({
+		Name = "fuel can / jerry can esp",
+		Default = false,
+		Callback = function(Value)
+			esp.jerrycan = Value
+			if esp.jerrycan then 
+				for i,v in pairs(game:GetService("Workspace"):GetChildren()) do 
+				if v.Name == "GasCan" or v.Name == "gascan" or v.Name == "oilcan" or v.Name == "OilCan" or v.Name == "WaterCan" or v.Name == "watercan" or v.Name == "DieselCan" or v.Name == "dieselcan" then 
+					local distance = (v.main.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+					local gas = v.main.tank.Value
+			
+					local partgui = Instance.new("BillboardGui")
+					partgui.Parent = v
+					partgui.AlwaysOnTop = true 
+					partgui.Name = "itemespz"
+					partgui.Size = UDim2.new(1,0,1,0)
+			
+					local frame = Instance.new("Frame")
+					frame.Parent = partgui
+					frame.BackgroundColor3 = esp.jcolor
+					frame.BackgroundTransparency = 0.25
+					frame.Size = UDim2.new(1,0,1,0)
+					frame.BorderSizePixel = 0
+					local corner = Instance.new("UICorner")
+					corner.Parent = frame 
+					local namegui = Instance.new("BillboardGui")
+					namegui.Parent = v
+					namegui.AlwaysOnTop = true 
+					namegui.Name = "Name"
+					namegui.Size = UDim2.new(1,0,1,0)
+					namegui.SizeOffset = Vector2.new(0,1)
+					local text = Instance.new("TextLabel")
+					text.Parent = namegui
+					text.Text = v.Name
+					text.TextColor3 = esp.jcolor
+					text.TextTransparency = 0.25
+					text.BackgroundTransparency = 1
+					text.TextScaled = true 
+					text.Size = UDim2.new(1,0,1,0)
+					text.Font = Enum.Font.Code
+					text.Name = "Gayy"
+					local distgui = Instance.new("BillboardGui")
+					distgui.Parent = v 
+					distgui.AlwaysOnTop = true 
+					distgui.Name = "name"
+					distgui.Size = UDim2.new(1,0,1,0)
+					distgui.SizeOffset = Vector2.new(0,-1)
+					local distext = Instance.new("TextLabel")
+					distext.Parent = distgui 
+					distext.Text = ""..math.floor(distance).."m"
+					distext.TextColor3 = esp.jcolor
+					distext.TextTransparency = 0.25
+					distext.BackgroundTransparency = 1 
+					distext.TextScaled = true 
+					distext.Size = UDim2.new(1,0,1,0)
+					distext.Font = Enum.Font.Code
+					distext.Name = "gg"
+					local gasgui = Instance.new("BillboardGui")
+					gasgui.Parent = v 
+					gasgui.AlwaysOnTop = true 
+					gasgui.Name = "nm"
+					gasgui.Size = UDim2.new(1,0,1,0)
+					gasgui.SizeOffset = Vector2.new(1,0)
+					local gastext = Instance.new("TextLabel")
+					gastext.Parent = gasgui
+					gastext.Text = "tank: "..gas
+					gastext.TextColor3 = esp.jcolor
+					gastext.TextTransparency = 0.25
+					gastext.BackgroundTransparency = 1 
+					gastext.TextScaled = true 
+					gastext.Size = UDim2.new(1,0,1,0)
+					gastext.Font = Enum.Font.Code
+					gastext.Name = "gg"
+				end
+				end
+			end
+		end 
+	})
+
+	Tab:AddColorpicker({
+		Name = "fuel can / jerry can color",
+		Default = Color3.fromRGB(255, 0, 0),
+		Callback = function(Value)
+			esp.jcolor = Value
+		end	  
+	})
+
+
+	Tab:AddToggle({
+		Name = "engine esp",
+		Default = false,
+		Callback = function(Value)
+			esp.carengine = Value
+			if esp.carengine then 
+				for i,v in pairs(game:GetService("Workspace"):GetChildren()) do 
+				if v.Name == "Engine" or v.Name == "Object_52" then
+					local distance = (v.tank.main.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+			
+					local partgui = Instance.new("BillboardGui")
+					partgui.Parent = v
+					partgui.AlwaysOnTop = true 
+					partgui.Name = "itemespz"
+					partgui.Size = UDim2.new(1,0,1,0)
+			
+					local frame = Instance.new("Frame")
+					frame.Parent = partgui
+					frame.BackgroundColor3 = esp.ecolor
+					frame.BackgroundTransparency = 0.25
+					frame.Size = UDim2.new(1,0,1,0)
+					frame.BorderSizePixel = 0
+					local corner = Instance.new("UICorner")
+					corner.Parent = frame 
+					local namegui = Instance.new("BillboardGui")
+					namegui.Parent = v
+					namegui.AlwaysOnTop = true 
+					namegui.Name = "Name"
+					namegui.Size = UDim2.new(1,0,1,0)
+					namegui.SizeOffset = Vector2.new(0,1)
+					local text = Instance.new("TextLabel")
+					text.Parent = namegui
+					text.Text = v.Name
+					text.TextColor3 = esp.ecolor
+					text.TextTransparency = 0.25
+					text.BackgroundTransparency = 1
+					text.TextScaled = true 
+					text.Size = UDim2.new(1,0,1,0)
+					text.Font = Enum.Font.Code
+					text.Name = "Gayy"
+					local distgui = Instance.new("BillboardGui")
+					distgui.Parent = v 
+					distgui.AlwaysOnTop = true 
+					distgui.Name = "name"
+					distgui.Size = UDim2.new(1,0,1,0)
+					distgui.SizeOffset = Vector2.new(0,-1)
+					local distext = Instance.new("TextLabel")
+					distext.Parent = distgui 
+					distext.Text = ""..math.floor(distance).."m"
+					distext.TextColor3 = esp.ecolor
+					distext.TextTransparency = 0.25
+					distext.BackgroundTransparency = 1 
+					distext.TextScaled = true 
+					distext.Size = UDim2.new(1,0,1,0)
+					distext.Font = Enum.Font.Code
+					distext.Name = "gg"
+					
+				end
+				end
+			end
+		end 
+	})
+
+	Tab:AddColorpicker({
+		Name = "engine color",
+		Default = Color3.fromRGB(255, 0, 0),
+		Callback = function(Value)
+			esp.ecolor = Value
+		end	  
+	})
+
+	Tab:AddToggle({
+		Name = "radiator esp",
+		Default = false,
+		Callback = function(Value)
+			esp.cooler = Value
+			if esp.cooler then 
+				for i,v in pairs(game:GetService("Workspace"):GetChildren()) do 
+				if v.Name == "radiator" or v.Name == "Radiator" then
+					local partgui = Instance.new("BillboardGui")
+					partgui.Parent = v
+					partgui.AlwaysOnTop = true 
+					partgui.Name = "itemespz"
+					partgui.Size = UDim2.new(1,0,1,0)
+			
+					local frame = Instance.new("Frame")
+					frame.Parent = partgui
+					frame.BackgroundColor3 = esp.ccolor
+					frame.BackgroundTransparency = 0.25
+					frame.Size = UDim2.new(1,0,1,0)
+					frame.BorderSizePixel = 0
+					local corner = Instance.new("UICorner")
+					corner.Parent = frame 
+					local namegui = Instance.new("BillboardGui")
+					namegui.Parent = v
+					namegui.AlwaysOnTop = true 
+					namegui.Name = "Name"
+					namegui.Size = UDim2.new(1,0,1,0)
+					namegui.SizeOffset = Vector2.new(0,1)
+					local text = Instance.new("TextLabel")
+					text.Parent = namegui
+					text.Text = v.Name
+					text.TextColor3 = esp.ccolor
+					text.TextTransparency = 0.25
+					text.BackgroundTransparency = 1
+					text.TextScaled = true 
+					text.Size = UDim2.new(1,0,1,0)
+					text.Font = Enum.Font.Code
+					text.Name = "Gayy"
+					
+				end
+				end
+			end
+		end 
+	})
+
+	Tab:AddColorpicker({
+		Name = "radiator color",
+		Default = Color3.fromRGB(255, 0, 0),
+		Callback = function(Value)
+			esp.ccolor = Value
+		end	  
+	})
+
+
+	Tab:AddToggle({
+		Name = "food esp",
+		Default = false,
+		Callback = function(Value)
+			esp.yumyum = Value
+			if esp.yumyum then 
+				for i,v in pairs(game:GetService("Workspace"):GetChildren()) do 
+					if v.Name == "Food" or v.Name == "Onion" or v.Name == "Peper" or v.Name == "Apple" or v.Name == "Pizza" or v.Name == "Bread" or v.Name == "Burger" or v.Name == "Bar" or v.Name == "Donut" or v.Name == "banana" or v.Name == "Garlic" then
+					local partgui = Instance.new("BillboardGui")
+					partgui.Parent = v
+					partgui.AlwaysOnTop = true 
+					partgui.Name = "itemespz"
+					partgui.Size = UDim2.new(1,0,1,0)
+			
+					local frame = Instance.new("Frame")
+					frame.Parent = partgui
+					frame.BackgroundColor3 = esp.fcolor
+					frame.BackgroundTransparency = 0.25
+					frame.Size = UDim2.new(1,0,1,0)
+					frame.BorderSizePixel = 0
+					local corner = Instance.new("UICorner")
+					corner.Parent = frame 
+					local namegui = Instance.new("BillboardGui")
+					namegui.Parent = v
+					namegui.AlwaysOnTop = true 
+					namegui.Name = "Name"
+					namegui.Size = UDim2.new(1,0,1,0)
+					namegui.SizeOffset = Vector2.new(0,1)
+					local text = Instance.new("TextLabel")
+					text.Parent = namegui
+					text.Text = v.Name
+					text.TextColor3 = esp.fcolor
+					text.TextTransparency = 0.25
+					text.BackgroundTransparency = 1
+					text.TextScaled = true 
+					text.Size = UDim2.new(1,0,1,0)
+					text.Font = Enum.Font.Code
+					text.Name = "Gayy"
+				end
+				end
+			end
+		end 
+	})
+
+	Tab:AddColorpicker({
+		Name = "food color",
+		Default = Color3.fromRGB(255, 0, 0),
+		Callback = function(Value)
+			esp.fcolor = Value
+		end	  
+	})
+
+	Tab:AddToggle({
+		Name = "weapon esp",
+		Default = false,
+		Callback = function(Value)
+			esp.guns = Value
+			if esp.guns then 
+				for i,v in pairs(game:GetService("Workspace"):GetChildren()) do 
+					if v.Name == "Pistol" or v.Name == "AK47" or v.Name == "dynamite" or v.Name == "axe" or v.Name == "RPG" or v.Name == "Mac10" or v.Name == "ARMOR_CRATE" or v.Name == "Katana" or v.Name == "Pike" or v.Name == "Muhoboika" or v.Name == "PumpShotgun" or v.Name == "C4" or v.Name == "MiniGun" or v.Name == "RopeGun" then
+			
+					local partgui = Instance.new("BillboardGui")
+					partgui.Parent = v
+					partgui.AlwaysOnTop = true 
+					partgui.Name = "itemespz"
+					partgui.Size = UDim2.new(1,0,1,0)
+			
+					local frame = Instance.new("Frame")
+					frame.Parent = partgui
+					frame.BackgroundColor3 = esp.gcolor
+					frame.BackgroundTransparency = 0.25
+					frame.Size = UDim2.new(1,0,1,0)
+					frame.BorderSizePixel = 0
+					local corner = Instance.new("UICorner")
+					corner.Parent = frame 
+					local namegui = Instance.new("BillboardGui")
+					namegui.Parent = v
+					namegui.AlwaysOnTop = true 
+					namegui.Name = "Name"
+					namegui.Size = UDim2.new(1,0,1,0)
+					namegui.SizeOffset = Vector2.new(0,1)
+					local text = Instance.new("TextLabel")
+					text.Parent = namegui
+					text.Text = v.Name
+					text.TextColor3 = esp.gcolor
+					text.TextTransparency = 0.25
+					text.BackgroundTransparency = 1
+					text.TextScaled = true 
+					text.Size = UDim2.new(1,0,1,0)
+					text.Font = Enum.Font.Code
+					text.Name = "Gayy"
+				end
+				end
+			end
+		end 
+	})
+
+	Tab:AddColorpicker({
+		Name = "weapon color",
+		Default = Color3.fromRGB(255, 0, 0),
+		Callback = function(Value)
+			esp.gcolor = Value
+		end	  
+	})
+
+	Tab:AddToggle({
+		Name = "monster esp",
+		Default = false,
+		Callback = function(Value)
+			esp.monsters = Value
+			if esp.monsters then 
+				for i,v in pairs(game:GetService("Workspace"):GetChildren()) do 
+					if v.Name == "mutant" or v.Name == "vampire" or v.Name == "Vampire" or v.Name == "Mutant" then
+			
+					local partgui = Instance.new("BillboardGui")
+					partgui.Parent = v
+					partgui.AlwaysOnTop = true 
+					partgui.Name = "itemespz"
+					partgui.Size = UDim2.new(1,0,1,0)
+			
+					local frame = Instance.new("Frame")
+					frame.Parent = partgui
+					frame.BackgroundColor3 = esp.mcolor
+					frame.BackgroundTransparency = 0.25
+					frame.Size = UDim2.new(1,0,1,0)
+					frame.BorderSizePixel = 0
+					local corner = Instance.new("UICorner")
+					corner.Parent = frame 
+					local namegui = Instance.new("BillboardGui")
+					namegui.Parent = v
+					namegui.AlwaysOnTop = true 
+					namegui.Name = "Name"
+					namegui.Size = UDim2.new(1,0,1,0)
+					namegui.SizeOffset = Vector2.new(0,1)
+					local text = Instance.new("TextLabel")
+					text.Parent = namegui
+					text.Text = v.Name
+					text.TextColor3 = esp.mcolor
+					text.TextTransparency = 0.25
+					text.BackgroundTransparency = 1
+					text.TextScaled = true 
+					text.Size = UDim2.new(1,0,1,0)
+					text.Font = Enum.Font.Code
+					text.Name = "Gayy"
+				end
+				end
+			end
+		end 
+	})
+
+	Tab:AddColorpicker({
+		Name = "monster color",
+		Default = Color3.fromRGB(255, 0, 0),
+		Callback = function(Value)
+			esp.mcolor = Value
+		end	  
+	})
+
+	
+	Tab:AddToggle({
+		Name = "bottlecap esp",
+		Default = false,
+		Callback = function(Value)
+			esp.caps = Value
+			if esp.caps then 
+				for i,v in pairs(game:GetService("Workspace"):GetChildren()) do 
+					if v.Name == "BottleCap" or v.Name == "bottlecap" then 
+						local partgui = Instance.new("BillboardGui")
+						partgui.Parent = v
+						partgui.AlwaysOnTop = true 
+						partgui.Name = "itemespz"
+						partgui.Size = UDim2.new(1,0,1,0)
+				
+						local frame = Instance.new("Frame")
+						frame.Parent = partgui
+						frame.BackgroundColor3 = esp.cccolor
+						frame.BackgroundTransparency = 0.25
+						frame.Size = UDim2.new(1,0,1,0)
+						frame.BorderSizePixel = 0
+						local corner = Instance.new("UICorner")
+						corner.Parent = frame 
+						local namegui = Instance.new("BillboardGui")
+						namegui.Parent = v
+						namegui.AlwaysOnTop = true 
+						namegui.Name = "Name"
+						namegui.Size = UDim2.new(1,0,1,0)
+						namegui.SizeOffset = Vector2.new(0,1)
+						local text = Instance.new("TextLabel")
+						text.Parent = namegui
+						text.Text = v.Name
+						text.TextColor3 = esp.cccolor
+						text.TextTransparency = 0.25
+						text.BackgroundTransparency = 1
+						text.TextScaled = true 
+						text.Size = UDim2.new(1,0,1,0)
+						text.Font = Enum.Font.Code
+						text.Name = "Gayy"
+				end
+				end
+			end
+		end 
+	})
+
+	Tab:AddColorpicker({
+		Name = "bottlecap color",
+		Default = Color3.fromRGB(255, 0, 0),
+		Callback = function(Value)
+			esp.cccolor = Value
+		end	  
+	})
+
+
+
+	local TeleportTab = Window:MakeTab({
+		Name = "items",
+		Icon = "rbxassetid://4483345998",
+		PremiumOnly = false
+	})
+
+	TeleportTab:AddSlider({
+		Name = "Offset X",
+		Min = 0,
+		Max = 30,
+		Default = 0,
+		Color = Color3.fromRGB(255,255,255),
+		Increment = 1,
+		ValueName = "studs",
+		Callback = function(Value)
+			tpx = Value
+		end    
+	})
+
+	TeleportTab:AddSlider({
+		Name = "Offset Y",
+		Min = 0,
+		Max = 30,
+		Default = 0,
+		Color = Color3.fromRGB(255,255,255),
+		Increment = 1,
+		ValueName = "studs",
+		Callback = function(Value)
+			tpy = Value
+		end    
+	})
+
+	TeleportTab:AddSlider({
+		Name = "Offset Z",
+		Min = 0,
+		Max = 30,
+		Default = 0,
+		Color = Color3.fromRGB(255,255,255),
+		Increment = 1,
+		ValueName = "studs",
+		Callback = function(Value)
+			tpz = Value
+		end    
+	})
+
+	local ModelDropdown = TeleportTab:AddDropdown({
+		Name = "select item",
+		Default = "choose a item..",
+		Options = {}
+	})
+	
+	-- Button to teleport the selected model
+	local TeleportButton = TeleportTab:AddButton({
+		Name = "teleport item",
+		Callback = function()
+			local selectedModelName = ModelDropdown.Value
+			local player = game.Players.LocalPlayer
+			local character = player.Character or player.CharacterAdded:Wait()
+			local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+			local model = workspace:FindFirstChild(selectedModelName)
+	
+			if model and model:IsA("Model") and model.PrimaryPart then
+				model:SetPrimaryPartCFrame(humanoidRootPart.CFrame + Vector3.new(tpx,tpy,tpz))
+				OrionLib:MakeNotification({
+					Name = "teleport success",
+					Content = "item teleported into your position",
+					Image = "rbxassetid://4483345998",
+					Time = 5
+				})
+			else
+				OrionLib:MakeNotification({
+					Name = "teleport error",
+					Content = "selected model does not exist or doesn't have a primarypart.",
+					Image = "rbxassetid://4483345998",
+					Time = 5
+				})
+			end
+		end
+	})
+
+	local Sections = TeleportTab:AddSection({
+		Name = "stack bring items"
+	})
+
+	TeleportTab:AddButton({
+		Name = "bring all jerry cans / fuel cans",
+		Callback = function()
+				  for i,v in pairs(game:GetService("Workspace"):GetChildren()) do 
+					if v.Name == "GasCan" or v.Name == "gascan" or v.Name == "WaterCan" or v.Name == "watercan" or v.Name == "DieselCan" or v.Name == "dieselcan" or v.Name == "OilCan" or v.Name == "oilcan" then
+						if v and v:IsA("Model") and v.PrimaryPart then
+						v:SetPrimaryPartCFrame(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(tpx,tpy,tpz))
+						OrionLib:MakeNotification({
+							Name = "teleport success",
+							Content = "stack teleported gascans",
+							Image = "rbxassetid://4483345998",
+							Time = 5
+						})
+					end
+				end
+			end
+		  end    
+	})
+	
+	TeleportTab:AddButton({
+		Name = "bring all car parts",
+		Callback = function()
+				  for i,v in pairs(game:GetService("Workspace"):GetChildren()) do 
+					if v.Name == "frontbumper" or v.Name == "enginehood" or v.Name == "back2" or v.Name == "back" or v.Name == "Wheel" or v.Name == "hood" or v.Name == "hood2" or v.Name == "FL2" or v.Name == "FL" or v.Name == "FR" or v.Name == "FR2" or v.Name == "RR" or v.Name == "RL" or v.Name == "RR2" or v.Name == "Engine" or v.Name == "Radiator" or v.Name == "rightlight" or v.Name == "rearbumper" or v.Name == "leftlight" then 
+						v:SetPrimaryPartCFrame(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(tpx,tpy,tpz))
+						OrionLib:MakeNotification({
+							Name = "teleport success",
+							Content = "stack teleported carparts",
+							Image = "rbxassetid://4483345998",
+							Time = 5
+						})
+					end
+				end
+		  end    
+	})
+
+	TeleportTab:AddButton({
+		Name = "bring all foods",
+		Callback = function()
+				  for i,v in pairs(game:GetService("Workspace"):GetChildren()) do 
+					if v.Name == "Food" or v.Name == "Onion" or v.Name == "Peper" or v.Name == "Apple" or v.Name == "Pizza" or v.Name == "Bread" or v.Name == "Burger" or v.Name == "Bar" or v.Name == "Donut" or v.Name == "banana" or v.Name == "Garlic" then
+						v:SetPrimaryPartCFrame(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(tpx,tpy,tpz))
+						OrionLib:MakeNotification({
+							Name = "teleport success",
+							Content = "stack teleported foods",
+							Image = "rbxassetid://4483345998",
+							Time = 5
+						})
+					end
+				end
+		  end    
+	})
+	
+	
+
+
+
+
+	local GunModsTab = Window:MakeTab({
+		Name = "gun mods",
+		Icon = "rbxassetid://7733955511",
+		PremiumOnly = false
+	})
+
+	GunModsTab:AddToggle({
+		Name = "infinite ammo (cannot disable, works for all guns)",
+		Default = false,
+		Callback = function(state)
+			ass = state 
+			if ass then
+			for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
+				if v.Name == "Pistol" or v.Name == "AK47" or v.Name == "RPG" or v.Name == "Mac10" or v.Name == "PumpShotgun" or v.Name == "MiniGun" then
+					v:SetAttribute("CurrentMagSize", 999999)
+					v:SetAttribute("MagSize", 999999)
+					v:SetAttribute("MaxBulletsAmount", 999999)
+					wait()
+				end
+				end
+			end
+		end
+	})
+
+	GunModsTab:AddButton({
+		Name = "full auto (gun must be dropped)",
+		Callback = function()
+			for _, gunStatsModule in pairs(require(game:GetService("ReplicatedStorage").Tables.GunTable)) do
+				if gunStatsModule.Name == "GOLDAK47" or gunStatsModule.Name == "RPG" or gunStatsModule.Name == "AK47" or gunStatsModule.Name == "PumpShotgun" or gunStatsModule.Name == "Pistol" then
+					gunStatsModule.FireMode = "Auto"
+					gunStatsModule.BulletSpeed = 200
+					gunStatsModule.BulletDamage = 999
+					gunStatsModule.BulletDistance = 999
+					gunStatsModule.FireRate = 0
+					gunStatsModule.ReloadTime = 0
+					gunStatsModule.MaxBulletsAmount = 9999
+					gunStatsModule.MinRecoilY = 0
+					gunStatsModule.MaxRecoilY = 0
+					gunStatsModule.MinRecoilX = 0
+					gunStatsModule.MaxRecoilX = 0
+					gunStatsModule.MinRecoilZ = 0
+					gunStatsModule.MaxRecoilZ = 0
+					gunStatsModule.FPFov = 80
+					gunStatsModule.FPAimFov = 50
+					gunStatsModule.ToAimSpeed = 0.1
+					wait() -- Add a small delay to prevent server overload
+				end
+			end
+		  end    
+	})
+
+	GunModsTab:AddLabel("gun must be dropped before toggling")
+	GunModsTab:AddLabel("re-toggle to enable it again")
+
+	local sexxy = GunModsTab:AddSection({
+		Name = "gun settings"
+	})
+
+	GunModsTab:AddLabel("gun must be dropped before using")
+
+	GunModsTab:AddToggle({
+		Name = "custom firerate",
+		Default = false,
+		Callback = function(state)
+			customfirerate = state 
+		end
+	})
+
+	GunModsTab:AddSlider({
+		Name = "firerate value",
+		Min = 0,
+		Max = 999,
+		Default = 5,
+		Color = Color3.fromRGB(255,255,255),
+		Increment = 1,
+		ValueName = "",
+		Callback = function(Value)
+			customfirerateValue = Value 
+			if customfirerate then 
+				for i, gunStatsModule in pairs(require(game:GetService("ReplicatedStorage").Tables.GunTable)) do 
+					if gunStatsModule.Name == "GOLDAK47" or gunStatsModule.Name == "RPG" or gunStatsModule.Name == "AK47" or gunStatsModule.Name == "PumpShotgun" or gunStatsModule.Name == "Pistol" then
+						gunStatsModule.FireRate = customfirerateValue
+					end
+				end
+			end
+		end    
+	})
+
+	GunModsTab:AddSlider({
+		Name = "bullet damage",
+		Min = 0,
+		Max = 999,
+		Default = 5,
+		Color = Color3.fromRGB(255,255,255),
+		Increment = 1,
+		ValueName = "",
+		Callback = function(Value)
+			if Value then
+				for i, gunStatsModule in pairs(require(game:GetService("ReplicatedStorage").Tables.GunTable)) do 
+					if gunStatsModule.Name == "GOLDAK47" or gunStatsModule.Name == "RPG" or gunStatsModule.Name == "AK47" or gunStatsModule.Name == "PumpShotgun" or gunStatsModule.Name == "Pistol" then
+						gunStatsModule.BulletDamage = Value
+					end
+				end
+			end
+		end    
+	})
+
+
+	GunModsTab:AddSlider({
+		Name = "reload time",
+		Min = 0,
+		Max = 999,
+		Default = 5,
+		Color = Color3.fromRGB(255,255,255),
+		Increment = 1,
+		ValueName = "",
+		Callback = function(Value)
+			if Value then
+				for i, gunStatsModule in pairs(require(game:GetService("ReplicatedStorage").Tables.GunTable)) do 
+					if gunStatsModule.Name == "GOLDAK47" or gunStatsModule.Name == "RPG" or gunStatsModule.Name == "AK47" or gunStatsModule.Name == "PumpShotgun" or gunStatsModule.Name == "Pistol" then
+						gunStatsModule.ReloadTime = Value
+					end
+				end
+			end
+		end    
+	})
+	
+	GunModsTab:AddSlider({
+		Name = "bullet speed",
+		Min = 0,
+		Max = 999,
+		Default = 5,
+		Color = Color3.fromRGB(255,255,255),
+		Increment = 1,
+		ValueName = "",
+		Callback = function(Value)
+			if Value then
+				for i, gunStatsModule in pairs(require(game:GetService("ReplicatedStorage").Tables.GunTable)) do 
+					if gunStatsModule.Name == "GOLDAK47" or gunStatsModule.Name == "RPG" or gunStatsModule.Name == "AK47" or gunStatsModule.Name == "PumpShotgun" or gunStatsModule.Name == "Pistol" then
+						gunStatsModule.BulletSpeed = Value
+					end
+				end
+			end
+		end    
+	})
+
+
+	
+	local PlayerTab = Window:MakeTab({
+		Name = "misc",
+		Icon = "rbxassetid://4335480896",
+		PremiumOnly = false
+	})
+	
+	local Section = PlayerTab:AddSection({
+		Name = "humanoid"
+	})
+	
+	
+	-- WalkSpeed Control
+	PlayerTab:AddSlider({
+		Name = "walkspeed",
+		Min = 16,
+		Max = 10000,
+		Default = 16,
+		Color = Color3.fromRGB(255, 255, 255),
+		Increment = 1,
+		ValueName = "Speed",
+		Callback = function(Value)
+			game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+		end    
+	})
+	
+	-- JumpPower Control
+	PlayerTab:AddSlider({
+		Name = "jumppower",
+		Min = 50,
+		Max = 10000,
+		Default = 50,
+		Color = Color3.fromRGB(255, 255, 255),
+		Increment = 1,
+		ValueName = "Power",
+		Callback = function(Value)
+			game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+		end    
+	})
+
+	PlayerTab:AddToggle({
+		Name = "noclip",
+		Default = false,
+		Callback = function(Value)
+			if Value then 
+				Noclip()
+			else
+				Clip()
+			end
+		end    
+	})
+
+	PlayerTab:AddSlider({
+		Name = "field of view",
+		Min = 50,
+		Max = 120,
+		Default = 90,
+		Color = Color3.fromRGB(255, 255, 255),
+		Increment = 1,
+		ValueName = "Distance",
+		Callback = function(Value)
+			game.Workspace.CurrentCamera.FieldOfView = Value
+		end    
+	})
+
+	local Section1 = PlayerTab:AddSection({
+		Name = "world"
+	})
+	
+	-- Gravity Control
+	PlayerTab:AddSlider({
+		Name = "gravity",
+		Min = 0,
+		Max = 196.2,
+		Default = 196.2,
+		Color = Color3.fromRGB(255, 255, 255),
+		Increment = 1,
+		ValueName = "Gravity",
+		Callback = function(Value)
+			workspace.Gravity = Value
+		end    
+	}) 
+
+
+
+	local function refreshModelList()
+		local models = {}
+		for _, model in ipairs(workspace:GetChildren()) do
+			if model:IsA("Model") and not models[model.Name] then
+				models[model.Name] = true
+			end
+		end
+	
+		-- Sort model names alphabetically
+		local modelNames = {}
+		for name, _ in pairs(models) do
+			table.insert(modelNames, name)
+		end
+		table.sort(modelNames)
+	
+		-- Refresh dropdown with updated options
+		ModelDropdown:Refresh(modelNames, true) -- true to clear existing options
+	
+		-- Debug messages
+		print("Model names:", table.concat(modelNames, ", "))
+		print("Dropdown options:", table.concat(ModelDropdown.Options, ", "))
+		print("Dropdown type:", type(ModelDropdown))
+	end
+	
+	-- Function to continuously monitor changes in the workspace
+	local function monitorWorkspace()
+		while wait(5) do -- Adjust the interval as needed
+			refreshModelList()
+		end
+	end
+	
+	-- Call refresh initially to populate the dropdown
+	refreshModelList()
+	
+	-- Start monitoring the workspace for changes
+	spawn(monitorWorkspace)
+
+	game.Workspace.ChildAdded:Connect(function()
+		if esp.jerrycan then 
+			jerrycann()
+		end
+		if esp.carengine then 
+			engineee()
+		end
+		if esp.yumyum then 
+			queso()
+		end
+		if esp.cooler then 
+			radiatorrr()
+		end
+		if esp.guns then 
+			bangbang()
+		end
+		if esp.monsters then 
+			monstahhh()
+		end
+		if esp.caps then 
+			bottlecapp()
+		end
+	end)
+
+	OrionLib:Init()
+else
+    print("Player closed the GUI.")
+end
+
