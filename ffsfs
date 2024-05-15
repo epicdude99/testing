@@ -1,0 +1,14 @@
+local whitelisted = {
+	2623291111,
+	2623291112,
+}
+
+for i,v in pairs(whitelisted) do 
+	if game.Players.LocalPlayer.UserId == whitelisted then
+		warn("Whitelisted.")
+		warn("Access granted.")
+	else
+		game.Players.LocalPlayer:Kick("Not whitelisted.")
+	end
+end
+end
