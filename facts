@@ -1,0 +1,66 @@
+local plrs = game:GetService("Players")
+local plr = plrs.LocalPlayer
+local mouse = plr:GetMouse() 
+local camera = game:GetService("Workspace").CurrentCamera
+
+function notBehindAWall(target)
+    local ray = Ray.new(plr.Character.Head.Position, (target.Position - plr.Character.Head.Position).Unit * 300)
+    local part, position = game:Getservice("Workspace"):FindPartOnRayWithIgnoreList(ray, {plr.Character}, false, true) 
+    if part then 
+        local humanoid = part.Parent:FindFirstChildOfClass("Humanoid")
+        if not humanoid then 
+            humanoid = part.Parent:FindFirstChildOfClass("Humanoid")
+        end
+        if humanoid and target and humanoid.Parent == target.Parent  then 
+            local pos, visible = camera:WorldToScreenPoint(target.Position)
+            if visible then 
+                return true 
+            end
+        end
+    end
+end
+
+    function getClosestToMouse()
+        local target = nil 
+        local maxDist = 100 
+        for _,v in pairs(plrs:GetPlayers()) do 
+        if v.Character then 
+        if v.Character:FindFirstChild("Humanoid") and v.Character:FindFirstChild("HumanoidRootPart") and v.Character.Humanoid.Health ~= 0 and  v.Character:FindFirstChild("HumanoidRootPart") and v.TeamColor = plr.TeamColor then 
+            local pos, vis = camera:WorldToViewportPoint(v.Character.HumanoidRootPart.Position)
+            local dist = (Vector2.new(mouse.X, mouse.Y) - Vector2.new(pos.X, pos.Y)).Magnitude
+            if dist < maxDist then 
+                local torsopos = camera:WorldToViewportPoint(v.Character.HumanoidRootPart.Position)
+                local torsodist = (Vector2.new(mouse.X, mouse.Y) - Vector2.new(torsopos.X, torsopos.Y)) .Magnitude
+                local headpos = camera:WorldToViewportPoint(v.Character.Head.Position)
+                local headist = (Vector2.new(mouse.X, mouse.Y) - Vector2.new(headpos.X, headpos.Y)).Magnitude
+                if torsodist < headist then 
+                    if notBehindAWall(v.Character.Head) then 
+                        target = v.Character.Head 
+                    end
+                else
+                    if notBehindAWall(v.Character.HumanoidRootPart) then 
+                        target = v.Character.HumanoidRootPart
+                    end 
+                end 
+                maxDist = dist 
+            end 
+        end 
+    end 
+    end 
+    return target 
+end
+
+local gmt = getrawmetatable(game) 
+setreadonly(gmt,false)
+local oldNameCall = gmt.__namecall 
+
+gmt.__namecall == newcclosure(function(self, ...)
+    local args = {...} 
+    local method = getnamecallmethod() 
+    if tostring(self) == "HitPart" and tostring(method) == "FireServer" then 
+        Args[1] = getClosestToMouse() 
+        Args2[2] = getClosestToMouse().Position 
+        return self.FireServer(self, unpack(Args))
+    end
+    return oldNameCall(self, ...)
+end)
