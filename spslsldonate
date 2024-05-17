@@ -1,0 +1,108 @@
+local replicatedStorage = game:GetService("ReplicatedStorage")
+local players = game:GetService("Players")
+local localplayer = game.Players.LocalPlayer
+local character = localplayer:WaitForChild("Character")
+local RootPart = character:WaitForChild("HumanoidRootPart")
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local configurations = {
+    chatSpam = nil,
+    chatSpamType = "Begging", -- Advertisement
+    autoBeg = nil,
+    autoBegPosition = "Stand", -- Fountain, Benches, Leaderboard, Players
+    autoBegDelay = 1,
+    begFromPlayer = nil,
+    playerToBeg = "reusableicecubes3",
+    beggingOffset = 1
+}
+
+local words = {
+    Begging = {
+        "please donate",
+        "its my birthday today please donate",
+        "furthermore, can you donate me please",
+        "i would be very happy if you donated",
+        "🙏🙏😭😓😓",
+        "pls robux",
+    },
+    Advertisement = {
+        "1 robux = 1 jump",
+        "1 robux = 1 pushup",
+        "if you donate me, your dad comes back",
+        "donate me and whatever you touch becomes gold",
+        "doubling the ammount of robux you donate me"
+    }
+}
+
+local function spamChat()
+    while wait() do 
+        if configurations.chatSpam and configurations.chatSpamType == "Begging" then 
+            replicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(words.Begging[math.random(#words.Begging)], "All")
+        elseif configurations.chatSpam and configurations.chatSpamType == "Advertisement" then 
+            replicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(words.Advertisement[math.random(#words.Advertisement)], "All")
+        end
+    end
+end
+
+local function autoBegging()
+    while wait() do 
+        if configurations.autoBeg and configurations.autoBegPosition == "Fountains" then
+            RootPart.CFrame = CFrame.new(166.092529296875, 3.38395357131958, 293.4341125488281)
+            wait(configurations.autoBegDelay) 
+            RootPart.CFrame = CFrame.new(151.5789794921875, 3.3834714889526367, 308.71710205078125)
+            wait(configurations.autoBegDelay) 
+            RootPart.CFrame = CFrame.new(166.36416625976562, 3.382761001586914, 321.5573425292969)
+            wait(configurations.autoBegDelay) 
+            RootPart.CFrame = CFrame.new(181.0347137451172, 3.3832013607025146, 307.3463134765625)
+        elseif configurations.autoBeg and configurations.autoBegPosition  == "Benches" then 
+            wait(configurations.autoBegDelay) 
+            RootPart.CFrame = CFrame.new(167.60391235351562, 3.3845343589782715, 279.34039306640625)
+            wait(configurations.autoBegDelay) 
+            RootPart.CFrame = CFrame.new(166.95445251464844, 3.385103225708008, 266.094970703125)
+            wait(configurations.autoBegDelay) 
+            RootPart.CFrame = CFrame.new(196.70901489257812, 3.383007049560547, 307.5944519042969)
+            wait(configurations.autoBegDelay) 
+            RootPart.CFrame = CFrame.new(210.0240478515625, 3.3828492164611816, 307.6990051269531)
+            wait(configurations.autoBegDelay) 
+            RootPart.CFrame = CFrame.new(165.02061462402344, 3.382181167602539, 335.57440185546875)
+            wait(configurations.autoBegDelay) 
+            RootPart.CFrame = CFrame.new(166.12095642089844, 3.3816170692443848, 348.8764953613281)
+            wait(configurations.autoBegDelay) 
+            RootPart.CFrame = CFrame.new(137.67483520507812, 3.3836917877197266, 306.5661926269531)
+            wait(configurations.autoBegDelay) 
+            RootPart.CFrame = CFrame.new(125.28273010253906, 3.3838696479797363, 305.52496337890625)
+        elseif configurations.autoBeg and configurations.autoBegPosition == "Leaderboard" then 
+            RootPart.CFrame = CFrame.new(165.5023193359375, 3.3787593841552734, 416.8802795410156)
+        elseif configurations.autoBeg and configurations.autoBegPosition ==  "Players" then 
+            for _, target in pairs(players) do 
+                if target:FindFirstChild("HumanoidRootPart") then 
+                    RootPart.CFrame = target.HumanoidRootPart.CFrame 
+                end
+            end
+        end
+    end
+end
+end
+
+local Window = OrionLib:MakeWindow({Name = "Title of the library", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+local Tab = Window:MakeTab({
+	Name = "Tab 1",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Section"
+})
+
+Tab:AddToggle({
+	Name = "This is a toggle!",
+	Default = false,
+	Callback = function(Value)
+		configurations.chatSpam = Value 
+        if configurations.chatSpam then 
+            spamChat()
+        end
+	end    
+})
